@@ -1,0 +1,28 @@
+{% extends 'pessoas/dashboard_base.html' %}
+
+{% block title %}Gerenciar Cargos - {{ usuario.get_full_name }}{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Gerenciar Cargo de {{ usuario.get_full_name }}</h2>
+
+<div class="data-table-container" style="max-width: 600px;">
+    <p style="margin-bottom: 20px;">Usuário: {{ usuario.get_full_name }} ({{ usuario.email }})</p>
+    <p style="margin-bottom: 30px;">Cargo Atual: {{ perfil.get_tipo_usuario_display }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="novo_cargo" style="display: block; margin-bottom: 10px; font-weight: 600;">Alterar Cargo para:</label>
+        <select name="novo_cargo" id="novo_cargo" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; margin-bottom: 20px;">
+            {% for cargo_value, cargo_label in cargos %}
+                <option value="{{ cargo_value }}" {% if perfil.tipo_usuario == cargo_value %}selected{% endif %}>{{ cargo_label }}</option>
+            {% endfor %}
+        </select>
+        
+        <div style="display: flex; gap: 10px; margin-top: 30px;">
+            <button type="submit" class="btn-editar" style="padding: 12px 30px;">Salvar Novo Cargo</button>
+            <a href="{% url 'dashboard_admin' %}" class="btn-cancelar" style="padding: 12px 30px;">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

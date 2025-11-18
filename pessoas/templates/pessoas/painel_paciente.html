@@ -1,0 +1,48 @@
+{% extends 'pessoas/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="section-painelpaciente">
+
+    <h2 class="titulo-painel">Painel do Paciente</h2>
+
+    <div class="painel-container">
+
+        <!-- Coluna do formulário de agendamento -->
+        <div class="col-agendamento">
+            <div class="card-agendamento">
+                <div class="card-body-agendamento">
+                    <h4 class="titulo-agendamento">Agendar Nova Consulta</h4>
+                    <form method="post" class="form-agendamento">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {{ perfil_form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-agendar">Agendar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna das consultas -->
+        <div class="col-consultas">
+            <h4 class="titulo-consultas">Minhas Consultas</h4>
+            <ul class="lista-consultas list-group">
+                {% for consulta in consultas %}
+                    <li class="item-consulta list-group-item d-flex justify-content-between align-items-center">
+                        <div class="info-consulta">
+                            <strong>Dr(a). {{ consulta.medico.username }} {{ consulta.medico.last_name }}</strong><br>
+                            <small class="text-muted">{{ consulta.data_hora|date:"d/m/Y, H:i" }}</small>
+                        </div>
+                        <span class="status-consulta badge bg-info rounded-pill">{{ consulta.get_status_display }}</span>
+                    </li>
+                {% empty %}
+                    <li class="item-vazio list-group-item">Você ainda não tem consultas agendadas.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

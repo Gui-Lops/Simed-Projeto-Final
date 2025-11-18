@@ -1,0 +1,165 @@
+{% extends 'pessoas/base.html' %}
+
+{% load static %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Sobre a<br><span class="highlight">SIMED</span></h1>
+            <p>A Clínica Geral Simed é um centro de saúde completo e moderno, dedicado a oferecer atendimento de alta qualidade para cuidar da saúde e bem-estar dos seus pacientes. Contamos com uma equipe de profissionais experientes e comprometidos, que atendem com atenção e respeito, proporcionando um ambiente acolhedor e humanizado.</p>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'images/medicos.png' %}" alt="Imagem de médicos">
+        </div>
+    </div>
+</section>
+
+    <section class="info-section">
+        <div class="info-wrapper">
+
+            <div class="info-container">
+
+                <div class="info-left">
+                    <div class="info-box">
+                        <h3>☎️ Contato</h3>
+                        <p>Telefone: (11) 3456-7890<br>E-mail: clinica@simed.com</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>🕒 Funcionamento</h3>
+                        <p>Pronto-Socorro: 24h, todos os dias<br>Ambulatório: Seg a Sex, 7h às 19h</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>👥 Visitas</h3>
+                        <p>Visitas a pacientes internados: todos os dias, das 14h às 17h.</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>🏢 Endereço</h3>
+                        <p>Av. das Palmeiras, 1520 – Centro, Monte Verde – SP<br>CEP: 08120-000</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>📍 Localização</h3>
+                        <p>Situado no centro de Monte Verde, próximo ao Parque Central e a 10 min da estação de metrô Aurora.</p>
+                    </div>
+                </div>
+
+                <!-- Imagem com sombra retangular atrás -->
+                <div class="info-right">
+                    <div class="shadow-box"></div>
+                    <div class="hospital-image">
+                        <img src="{% static 'images/PredioClinica.png' %}" alt="Imagem da fachada do hospital">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="certificados-section" id="certificados">
+    <div class="certificados-wrapper container">
+
+        <div class="certificados-header" data-aos="fade-up">
+            <h2>Nossos <span class="highlight">Certificados & Reconhecimentos</span></h2>
+            <p>Garantimos qualidade, segurança e excelência em todos os nossos atendimentos. Conheça alguns dos selos que comprovam o compromisso da Simed com a saúde e o bem-estar.</p>
+        </div>
+
+        <!-- Carrossel -->
+        <div class="swiper certificados-carousel" data-aos="fade-up">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide certificado-item">
+                    <img src="{% static 'images/iso9001.png' %}" alt="Certificação ISO 9001">
+                    <div class="certificado-info">
+                        <h4>ISO 9001 – Gestão da Qualidade</h4>
+                        <p>Certificação que garante a padronização e excelência dos nossos processos internos.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide certificado-item">
+                    <img src="{% static 'images/ona3.png' %}" alt="Acreditação ONA Nível 2">
+                    <div class="certificado-info">
+                        <h4>Acreditação ONA Nível 2</h4>
+                        <p>Reconhecimento nacional pela segurança e qualidade nos cuidados com o paciente.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide certificado-item">
+                    <img src="{% static 'images/sust2023.png' %}" alt="Prêmio Sustentabilidade">
+                    <div class="certificado-info">
+                        <h4>Prêmio Sustentabilidade em Saúde</h4>
+                        <p>Homenagem às práticas ecológicas e de responsabilidade social adotadas pela Simed.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide certificado-item">
+                    <img src="{% static 'images/excelenciamedica.png' %}" alt="Selo Excelência Médica">
+                    <div class="certificado-info">
+                        <h4>Selo Excelência Médica</h4>
+                        <p>Emitido pela Associação Brasileira de Clínicas, reforçando nossa reputação de confiança.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botões do carrossel -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<!-- AOS para animações de entrada -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // inicializa o Swiper (carrossel)
+    const swiper = new Swiper('.certificados-carousel', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+
+    // inicializa o AOS
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  });
+</script>
+
+
+
+{% endblock %}

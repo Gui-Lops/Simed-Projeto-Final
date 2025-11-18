@@ -1,0 +1,10 @@
+# Arquivos de ambiente (senhas)
+.env
+
+# Cache do Python (lixo gerado automaticamente)
+__pycache__/
+*.pyc
+
+# Pastas de IDE (opcional)
+.vscode/
+.idea/

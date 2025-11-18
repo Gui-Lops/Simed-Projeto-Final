@@ -1,0 +1,180 @@
+{% extends 'pessoas/base.html' %}
+
+{% load static %}
+
+{% block title %}Agenda{% endblock %}
+
+{% block content %}
+
+ <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- SEÇÃO CALENDÁRIO -->
+        <section class="calendar-section">
+            <div class="calendar-container">
+                <div class="calendar-header-top">
+                    <h2>Janeiro</h2>
+                </div>
+                <div class="calendar-navigation">
+                    <button class="nav-btn prev-btn">&lt;</button>
+                    <span id="monthYear">Janeiro</span>
+                    <button class="nav-btn next-btn">&gt;</button>
+                </div>
+                <div class="calendar">
+                    <div class="weekdays">
+                        <div class="weekday">Dom</div>
+                        <div class="weekday">Seg</div>
+                        <div class="weekday">Ter</div>
+                        <div class="weekday">Qua</div>
+                        <div class="weekday">Qui</div>
+                        <div class="weekday">Sex</div>
+                        <div class="weekday">Sáb</div>
+                    </div>
+                    <div class="days" id="calendarDays">
+                        <!-- Os dias serão preenchidos por JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO AGENDAMENTO -->
+        <section class="scheduling-section">
+            <div class="scheduling-container">
+                <h2 class="date-title" id="dateTitle">1 de Janeiro, Quarta-Feira</h2>
+                
+                <div class="scheduling-grid-wrapper">
+                    <div class="professionals-list">
+                        <div class="professionals-label">Profissionais</div>
+                        
+                        <div class="professional-item">
+                            <img src="img/Médico 1.png" alt="Kleber Russo" class="professional-avatar">
+                            <span class="professional-name">Kleber Russo</span>
+                        </div>
+                        <div class="professional-item">
+                            <img src="img/Médico 2.png" alt="Caio capuado" class="professional-avatar">
+                            <span class="professional-name">Caio capuado</span>
+                        </div>
+                        <div class="professional-item">
+                            <img src="img/Médico 3.png" alt="Claudio triball" class="professional-avatar">
+                            <span class="professional-name">Claudio triball</span>
+                        </div>
+                        <div class="professional-item">
+                            <img src="img/Médico 4.png" alt="Roger Donger" class="professional-avatar">
+                            <span class="professional-name">Roger Donger</span>
+                        </div>
+                        <div class="professional-item">
+                            <img src="img/Médico 5.png" alt="Yuri vintedios" class="professional-avatar">
+                            <span class="professional-name">Yuri vintedios</span>
+                        </div>
+                        <div class="professional-item">
+                            <span class="professional-name">Sala de conferência</span>
+                        </div>
+                    </div>
+    
+                    <!-- GRID DE HORÁRIOS -->
+                    <div class="time-grid">
+                        <div class="times-header-row">
+                            <div class="times-header" data-time="10:00">10:00</div>
+                            <div class="times-header" data-time="11:00">11:00</div>
+                            <div class="times-header" data-time="12:00">12:00</div>
+                            <div class="times-header" data-time="13:00">13:00</div>
+                            <div class="times-header" data-time="14:00">14:00</div>
+                            <div class="times-header" data-time="15:00">15:00</div>
+                            <div class="times-header" data-time="16:00">16:00</div>
+                            <div class="times-header" data-time="17:00">17:00</div>
+                            <div class="times-header" data-time="18:00">18:00</div>
+                            <div class="times-header" data-time="19:00">19:00</div>
+                        </div>
+    
+                        <!-- Slots para cada profissional (6 linhas x 10 colunas) -->
+                        <!-- Linha 1: Kleber Russo -->
+                        <div class="time-slot-row" data-professional="Kleber Russo">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+    
+                        <!-- Linha 2: Caio capuado -->
+                        <div class="time-slot-row" data-professional="Caio capuado">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+    
+                        <!-- Linha 3: Claudio triball -->
+                        <div class="time-slot-row" data-professional="Claudio triball">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+    
+                        <!-- Linha 4: Roger Donger -->
+                        <div class="time-slot-row" data-professional="Roger Donger">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+    
+                        <!-- Linha 5: Yuri vintedios -->
+                        <div class="time-slot-row" data-professional="Yuri vintedios">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+
+                        <!-- Linha 6: Sala de conferência -->
+                        <div class="time-slot-row" data-professional="Sala de conferência">
+                            <div class="time-slot" data-time="10:00"></div>
+                            <div class="time-slot" data-time="11:00"></div>
+                            <div class="time-slot" data-time="12:00"></div>
+                            <div class="time-slot" data-time="13:00"></div>
+                            <div class="time-slot" data-time="14:00"></div>
+                            <div class="time-slot" data-time="15:00"></div>
+                            <div class="time-slot" data-time="16:00"></div>
+                            <div class="time-slot" data-time="17:00"></div>
+                            <div class="time-slot" data-time="18:00"></div>
+                            <div class="time-slot" data-time="19:00"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="scheduling-note">Nota de confirmação</p>
+                <button class="btn-confirm" id="confirmButton">Confirmar Agendamento</button>
+            </div>
+        </section>
+    </main>
+{% endblock %}
